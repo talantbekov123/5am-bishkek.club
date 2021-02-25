@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="BEAST BOLOM" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Участники клуба ранних подъемов в Бишкеке</title>
+    <meta name="description"
+        content="Ниже аккаунты участников группы в челлендже. Они проснулись ровно в 5:30 утра. Чтобы успешно пройти челлендж нужно 21 день успешно пройти все 21 дней с возможностью 1 раз не сдать отчет вовремя. 2 пропуска - вылет из группы.">
+    <link rel="icon" type="image/png" href="custom/icon.png">
+
+    <link rel="stylesheet" type="text/css" href="./homepages/lawyer/css/lawyer-style.css" media="screen" />
+    <script src="./js/jquery.js"></script>
+    <link href="./css/plugins.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body-inner">
+        <%- include('./components/header.ejs', {path: './' }); %>
+
+
+            <section id="page-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="content col-lg-12" style="overflow: scroll; overflow: auto;">
+                            <h4>Последние 5 дней ранних подъемов</h4>
+                            <p>Каждая графа показывает время отписки телеграм боту.</p>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">НИК НЕЙМ</th>
+                                        <% for(let i=0; i < dates.length; i++) { %>
+                                            <th scope="col">
+                                                <%= dates[i] %>
+                                            </th>
+                                            <% } %>
+                                    </tr>
+                                </thead>
+                                <% for(let i=0; i < data.length; i++) { %>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">
+                                                <%= data[i].name %>
+                                            </th>
+                                            <% for(let j=0; j < data[i].time.length; j++) { %>
+                                                <td>
+                                                    <%= data[i].time[j] %>
+                                                </td>
+                                                <% } %>
+                                        </tr>
+                                    </tbody>
+                                    <% } %>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+
+            <%- include('./components/footer.ejs', {path: './' }); %>
+                <a id="scrollTop" class="scroll-to" href="body.html"><i class="icon-chevron-up"></i><i
+                        class="icon-chevron-up"></i></a>
+                <script src="./js/plugins.js"></script>
+                <script src="./js/functions.js"></script>
+</body>
+
+</html>
