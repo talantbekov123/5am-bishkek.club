@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="INSPIRO" />
-    <meta name="description" content="Themeforest Template Polo, html template">
-    <link rel="icon" type="image/png" href="images/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>POLO | The Multi-Purpose HTML5 Template</title>
+
+    <title>Клуб 5 утра | АДМИНКА</title>
+    <meta name="description" content="Клуб 5 утра | АДМИНКА">
+    <link rel="icon" type="image/png" href="custom/icon.png">
+
     <link rel="stylesheet" type="text/css" href="./homepages/lawyer/css/lawyer-style.css" media="screen" />
     <script src="./js/jquery.js"></script>
     <link href="./css/plugins.css" rel="stylesheet">
@@ -23,11 +25,12 @@
             <section id="page-content">
                 <div class="container">
                     <div class="row">
-                        <div class="content col-lg-9" style="overflow: scroll; overflow: auto;">
+                        <div class="content col-lg-6" style="overflow: scroll; overflow: auto;">
                             <form method="POST" action="/uploads" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="exampleFormControlFile1">Example file input</label>
-                                    <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" name="file" class="form-control-file"
+                                        id="exampleFormControlFile1">
                                 </div>
                                 <button type="submit" class="btn m-t-30 mt-3">Submit</button>
 
@@ -35,12 +38,17 @@
                         </div>
 
 
-                        <div class="content col-lg-9">
-                            <form>
+                        <div class="content col-lg-6">
+                            <form method="POST" action="/groups" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Account render</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="name@example.com">
+                                    <label for="exampleFormControlInput1">Group name</label>
+                                    <input type="text" class="form-control" placeholder="Group name" name="name">
+                                    <br>
+
+                                    <input type="text" class="form-control" placeholder="Description"
+                                        name="description">
+                                    <input type="file" name="file" class="form-control-file"
+                                        id="exampleFormControlFile1">
                                 </div>
                                 <button type="submit" class="btn m-t-30 mt-3">Submit</button>
                             </form>

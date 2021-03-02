@@ -36,7 +36,7 @@ app.use(session({
 
 /* Configure database */
 const db = require('./database/index')('./database/models/*.js');
-db.connect('mongodb://localhost/5amclub');
+db.connect('mongodb://localhost/5amclubwebsite');
 
 app.use(cookieParser());
 

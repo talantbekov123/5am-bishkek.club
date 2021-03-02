@@ -21,7 +21,7 @@ module.exports = (app, db) => {
     });
 
     router.post('/', upload.any(), (req, res) => {
-        res.send('OK');
+        res.send('FILE IS UPDATED');
     });
 
     app.use('/uploads', router);

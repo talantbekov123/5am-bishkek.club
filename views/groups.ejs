@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="INSPIRO" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Клуб 5 утра | АДМИНКА</title>
+    <meta name="description" content="Клуб 5 утра | АДМИНКА">
+    <link rel="icon" type="image/png" href="custom/icon.png">
+
+    <link rel="stylesheet" type="text/css" href="./homepages/lawyer/css/lawyer-style.css" media="screen" />
+    <script src="./js/jquery.js"></script>
+    <link href="./css/plugins.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body-inner">
+        <%- include('./components/header.ejs', {path: './' }); %>
+
+
+            <section class="p-b-20">
+                <div class="container">
+                    <div class="row">
+
+                        <% for(let i=0; i < groups.length; i++) { %>
+                            <div class="col-lg-4">
+                                <a href="/groups/<%= groups[i]._id %>">
+
+                                    <img src="/uploads/<%= groups[i].img %>" class="img-fluid m-b-20">
+                                    <h4>
+                                        <%= groups[i].name %>
+                                    </h4>
+                                    <p>
+                                        <%= groups[i].description %>
+                                    </p>
+                                </a>
+                            </div>
+                        <% } %>
+
+                    </div>
+
+                </div>
+            </section>
+            <br>
+            <br>
+
+
+
+
+            <%- include('./components/footer.ejs', {path: './' }); %>
+                <a id="scrollTop" class="scroll-to" href="body.html"><i class="icon-chevron-up"></i><i
+                        class="icon-chevron-up"></i></a>
+                <script src="./js/plugins.js"></script>
+                <script src="./js/functions.js"></script>
+</body>
+
+</html>

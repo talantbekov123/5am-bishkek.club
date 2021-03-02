@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="INSPIRO" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Клуб 5 утра | АДМИНКА</title>
+    <meta name="description" content="Клуб 5 утра | АДМИНКА">
+    <link rel="icon" type="image/png" href="custom/icon.png">
+
+    <link rel="stylesheet" type="text/css" href="../homepages/lawyer/css/lawyer-style.css" media="screen" />
+    <script src="../js/jquery.js"></script>
+    <link href="../css/plugins.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body-inner">
+        <%- include('./components/header.ejs', {path: '../' }); %>
+
+
+            <section id="page-content" class="no-sidebar">
+                <div class="container">
+
+                    <h2>
+                        Groups
+                    </h2>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table id="datatable" class="table table-bordered table-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Chat IDs</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(let i=0; i < groups.length; i++) { %>
+                                        <tr>
+                                            <td>
+                                                <%= groups[i].name %>
+                                            </td>
+                                            <td>
+                                                <%= groups[i].chats %>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <div class="col-lg-12" style="margin-top: 50px;">
+                            <form method="POST" action="/groups/chats">
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Add chats to groups</label>
+
+                                    <select name="groupId[]">
+                                        <% for(let i=0; i < groups.length; i++) { %>
+                                            <option value="<%= groups[i]._id %>">
+                                                <%= groups[i].name %>
+                                            </option>
+                                            <% } %>
+                                    </select>
+
+                                    <input style="margin-top: 10px;" type="text" name="chatId" class="form-control-file"
+                                        id="exampleFormControlFile1">
+                                </div>
+                                <button type="submit" class="btn m-t-30 mt-3">Add</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="page-content" class="no-sidebar">
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-lg-12">
+                            <h2>
+                                Удаление
+                            </h2>
+                            <form method="POST" action="/groups/delete/chats">
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">REMOVE chats from groups</label>
+
+                                    <select name="groupId[]">
+                                        <% for(let i=0; i < groups.length; i++) { %>
+                                            <option value="<%= groups[i]._id %>">
+                                                <%= groups[i].name %>
+                                            </option>
+                                            <% } %>
+                                    </select>
+
+                                    <input style="margin-top: 10px;" type="text" name="chatId" class="form-control-file"
+                                        id="exampleFormControlFile1">
+                                </div>
+                                <button type="submit" class="btn m-t-30 mt-3">REMOVE</button>
+                            </form>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <table id="datatable" class="table table-bordered table-hover" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Chat IDs</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(let i=0; i < groups.length; i++) { %>
+                                        <tr>
+                                            <td>
+                                                <%= groups[i].name %>
+                                            </td>
+                                            <td>
+                                                <%= groups[i].chats %>
+                                            </td>
+                                            <td>
+                                                <a href="/groups/delete?_id=<%= groups[i]._id %>">
+                                                    Удалить
+                                                </a>    
+                                            </td>
+                                        </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <%- include('./components/footer.ejs', {path: '../' }); %>
+                <a id="scrollTop" class="scroll-to" href="body.html"><i class="icon-chevron-up"></i><i
+                        class="icon-chevron-up"></i></a>
+                <script src="../js/plugins.js"></script>
+                <script src="../js/functions.js"></script>
+</body>
+
+</html>
