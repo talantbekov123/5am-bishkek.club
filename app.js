@@ -27,12 +27,14 @@ app.use(compression());
 // app.use(helmet());
 app.use(methodOverride('_method'));
 
+/*
 app.use(session({
   cookieName: 'session',
   secret: 'swimraces-secret',
   duration: 30 * 60 * 1000,
   activeDuration: 10 * 60 * 1000
 }));
+*/
 
 /* Configure database */
 const db = require('./database/index')('./database/models/*.js');
