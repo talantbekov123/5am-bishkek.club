@@ -17,6 +17,10 @@ module.exports = (app, db) => {
 		res.render('rules', {});
 	});
 
+	router.get('/intro', async (req, res) => {
+		res.render('intro', {});
+	});
+
 	router.get('/contacts', async (req, res) => {
 		res.render('contacts', {});
 	});
